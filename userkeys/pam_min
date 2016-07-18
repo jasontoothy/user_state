@@ -1,4 +1,4 @@
-#%PAM-1.0 - exported from master
+#%PAM-1.0 - exported from GITHUB
 auth       required     pam_sepermit.so
 auth       required     pam_google_authenticator.so
 auth       substack     password-auth
