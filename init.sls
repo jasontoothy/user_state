@@ -19,14 +19,14 @@
     - managed
     - user: {{ user }}
     - group: {{ user }}
-    - source: salt://user/userkeys/{{ user }}/{{ user }}_ssh
+    - source: file://user/userkeys/{{ user }}/{{ user }}_ssh
     - mode: 600
 /home/{{ user }}/.google_authenticator:
   file:
     - managed
     - user: {{ user }}
     - group: {{ user }}
-    - source: salt://user/userkeys/{{ user }}/{{ user }}_ga
+    - source: file://user/userkeys/{{ user }}/{{ user }}_ga
     - mode: 400
 {% endfor %}
 /etc/gainstall.sh:
@@ -34,21 +34,21 @@
     - managed
     - user: root
     - group: root
-    - source: salt://user/userkeys/gainstall.sh
+    - source: file://user/userkeys/gainstall.sh
     - mode: 770
 /etc/pam.d/sshd:
   file:
     - managed
     - user: root
     - group: root
-    - source: salt://user/userkeys/pam_min
+    - source: file://user/userkeys/pam_min
     - mode: 644
 /etc/ssh/sshd_config:
   file:
     - managed
     - user: root
     - group: root
-    - source: salt://user/userkeys/sshd_config_min
+    - source: file://user/userkeys/sshd_config_min
     - mode: 644
 sh /etc/gainstall.sh:
   cmd.run
